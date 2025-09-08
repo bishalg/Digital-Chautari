@@ -1,6 +1,24 @@
 # Digital Chautari
 
-[![Live Demo](https://img.shields.io/badge/Live%20Demo-View%20Site-blue)](https://bishalg.github.io/Digital-Chautari/)
+[![Live Demo](https://img.shields.## Project Documentation
+
+### Overview Documents
+
+- **[Concept Note](Docs/_site/Concept Note.html)** - A 1-page executive summary for policymakers and leaders, outlining the core problem and the Digital Chautari solution for Nepal.
+
+- **[White Paper](Docs/_site/White Paper.html)** - A detailed framework for stakeholders, explaining the system's vision, functionality, implementation roadmap, and benefits for Nepal.
+
+### Technical Documentation
+
+- **[Technical Specification](Docs/_site/Technical Specification.html)** - The complete technical blueprint of the protocol, detailing the architecture, cryptography, data schemas, and security model for engineers.
+
+- **[Protocol Expansion Plan](Docs/_site/Protocol Expansion Plan.html)** - Detailed expansion plan for enhancing the protocol with network communication specifications, cryptographic primitive details, key management, and long-term scalability.
+
+- **[Jurisdictional Scoping Module](Docs/_site/Jurisdictional Scoping Module.html)** - Technical addendum explaining how the protocol supports layered governance from federal to local ward levels with privacy-preserving proofs.
+
+### Full Documentation Site
+
+For the complete documentation experience with navigation and table of contents, visit the **[Full Documentation Site](Docs/_site/index.html)**./Live%20Demo-View%20Site-blue)](https://bishalg.github.io/Digital-Chautari/)
 
 *The Voice of the People* - A decentralized protocol for transparent, verifiable governance in Nepal.
 

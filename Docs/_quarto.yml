@@ -2,11 +2,21 @@ project:
   type: website
 
 website:
-  title: "Docs"
+  title: "Digital Chautari Documentation"
   navbar:
     left:
       - href: index.qmd
         text: Home
+      - href: Concept Note.md
+        text: Concept Note
+      - href: White Paper.md
+        text: White Paper
+      - href: Technical Specification.md
+        text: Technical Specification
+      - href: Protocol Expansion Plan.md
+        text: Protocol Expansion Plan
+      - href: Jurisdictional Scoping Module.md
+        text: Jurisdictional Scoping Module
       - about.qmd
 
 format:

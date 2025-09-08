@@ -1,7 +1,39 @@
 ---
-title: "Docs"
+title: "Digital Chautari Documentation"
+subtitle: "Technical Documentation for the Digital Chautari Protocol"
 ---
 
-This is a Quarto website.
+## Welcome to Digital Chautari Documentation
 
-To learn more about Quarto websites visit <https://quarto.org/docs/websites>.
+Digital Chautari is a decentralized protocol for transparent, verifiable governance in Nepal. This documentation provides comprehensive information about the project, from high-level concepts to detailed technical specifications.
+
+## Project Documentation
+
+### Overview Documents
+
+- **[Concept Note](Concept Note.md)** - A 1-page executive summary for policymakers and leaders, outlining the core problem and the Digital Chautari solution for Nepal.
+
+- **[White Paper](White Paper.md)** - A detailed framework for stakeholders, explaining the system's vision, functionality, implementation roadmap, and benefits for Nepal.
+
+### Technical Documentation
+
+- **[Technical Specification](Technical Specification.md)** - The complete technical blueprint of the Digital Chautari Protocol, detailing the architecture, cryptography, data schemas, and security model for engineers.
+
+- **[Protocol Expansion Plan](Protocol Expansion Plan.md)** - Detailed expansion plan for enhancing the protocol with network communication specifications, cryptographic primitive details, key management, and long-term scalability.
+
+- **[Jurisdictional Scoping Module](Jurisdictional Scoping Module.md)** - Technical addendum explaining how the protocol supports layered governance from federal to local ward levels with privacy-preserving proofs.
+
+## Quick Start
+
+1. **For Policymakers**: Start with the [Concept Note](Concept Note.md) for a high-level overview
+2. **For Stakeholders**: Read the [White Paper](White Paper.md) for comprehensive project understanding
+3. **For Developers**: Dive into the [Technical Specification](Technical Specification.md) for implementation details
+
+## Project Links
+
+- **Live Demo**: [https://bishalg.github.io/Digital-Chautari/](https://bishalg.github.io/Digital-Chautari/)
+- **GitHub Repository**: [https://github.com/bishalg/Digital-Chautari](https://github.com/bishalg/Digital-Chautari)
+
+---
+
+*Digital Chautari: Empowering voices, strengthening democracy.*
