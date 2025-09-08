@@ -33,6 +33,14 @@ jobs:
         uses: actions/checkout@v4
       - name: Setup Pages
         uses: actions/configure-pages@v5
+      - name: Setup Quarto
+        uses: quarto-dev/quarto-actions/setup@v2
+        with:
+          version: latest
+      - name: Render Quarto Documentation
+        run: |
+          cd Docs
+          quarto render
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
