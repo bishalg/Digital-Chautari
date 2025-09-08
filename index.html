@@ -1,85 +1,38 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en" class="dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Digital Chautari - The Voice of the People</title>
+    <title>Digital Chautari - Digital Bridge for Citizens and Government</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <style>
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: #f8fafc; /* Light mode default bg */
-        }
-        .dark body {
-            background-color: #020617; /* Dark mode default bg */
-        }
-        .gradient-text {
-            background: linear-gradient(to right, #4f46e5, #ec4899);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-        .dark .dark-gradient-text {
-            background: linear-gradient(to right, #818cf8, #f472b6);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-        .modal {
-            transition: opacity 0.25s ease;
-        }
-        .modal-content {
-            transition: transform 0.25s ease;
-        }
-        .section-fade-in {
-            opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-        }
-        .section-fade-in.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-        code {
-            background-color: #e2e8f0;
-            color: #1e293b;
-            padding: 0.1rem 0.4rem;
-            border-radius: 0.25rem;
-            font-size: 0.9em;
-            font-family: monospace;
-        }
-        .dark code {
-            background-color: #334155;
-            color: #e2e8f0;
-        }
-    </style>
+    <link rel="stylesheet" href="assets/css/styles.css">
 </head>
-<body class="text-slate-800 dark:text-slate-200 antialiased">
+<body class="main-layout">
 
     <!-- Header -->
-    <header id="header" class="bg-slate-50/80 dark:bg-slate-900/80 backdrop-blur-sm fixed top-0 left-0 right-0 z-50 transition-colors duration-300">
-        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <a href="#" class="flex items-center space-x-2">
-                <svg class="h-8 w-8 text-indigo-600 dark:text-indigo-400" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+    <header class="site-header">
+        <nav class="header-nav">
+            <a href="#" class="brand-link">
+                <svg class="brand-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M12 18.75a6 6 0 006-6v-1.5m-6 7.5a6 6 0 01-6-6v-1.5m12 0v-1.5a6 6 0 00-6-6m0 0a6 6 0 00-6 6v1.5m6-7.5v1.5m6 6v-1.5m-6 6a6 6 0 006-6" />
                 </svg>
-                <span class="text-xl font-bold text-slate-900 dark:text-white" data-lang="header_title">Digital Chautari</span>
+                <span class="brand-text" data-lang="header_title">Digital Chautari</span>
             </a>
-            <div class="hidden md:flex items-center space-x-8">
-                <a href="#vision" class="hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors" data-lang="nav_vision">The Vision</a>
-                <a href="#how" class="hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors" data-lang="nav_how">How It Works</a>
-                <a href="#documents" class="hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors" data-lang="nav_docs">Documents</a>
+            <div class="nav-links">
+                <a href="#vision" class="nav-link" data-lang="nav_vision">The Vision</a>
+                <a href="#how" class="nav-link" data-lang="nav_how">How It Works</a>
+                <a href="#documents" class="nav-link" data-lang="nav_docs">Documents</a>
             </div>
-            <div class="flex items-center space-x-4">
+            <div class="header-controls">
                 <!-- Language Switch -->
-                <button id="lang-switch" class="text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition-colors">
+                <button id="lang-switch" class="control-button">
                     <span id="lang-text">EN</span>
                 </button>
                 <!-- Theme Toggle -->
-                <button id="theme-toggle" class="p-2 rounded-full text-slate-600 dark:text-slate-400 hover:bg-slate-200 dark:hover:bg-slate-800 transition-colors">
-                    <svg id="theme-icon-light" class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 3v2.25m6.364.386l-1.591 1.591M21 12h-2.25m-.386 6.364l-1.591-1.591M12 18.75V21m-6.364-.386l1.591-1.591M3 12H.75m.386-6.364L4.84 7.16M12 12a4.5 4.5 0 00-4.5 4.5v.008c0 .054.022.105.058.142l.001.001a4.5 4.5 0 004.44 4.354h.001a4.5 4.5 0 004.5-4.5v-.008a4.5 4.5 0 00-4.5-4.5z" /></svg>
-                    <svg id="theme-icon-dark" class="h-5 w-5 hidden" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M21.752 15.002A9.718 9.718 0 0118 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 003 11.25c0 5.385 4.365 9.75 9.75 9.75 2.833 0 5.396-1.21 7.252-3.248z" /></svg>
+                <button id="theme-toggle" class="control-button">
+                    <svg id="theme-icon-light" class="control-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 3v2.25m6.364.386l-1.591 1.591M21 12h-2.25m-.386 6.364l-1.591-1.591M12 18.75V21m-6.364-.386l1.591-1.591M3 12H.75m.386-6.364L4.84 7.16M12 12a4.5 4.5 0 00-4.5 4.5v.008c0 .054.022.105.058.142l.001.001a4.5 4.5 0 004.44 4.354h.001a4.5 4.5 0 004.5-4.5v-.008a4.5 4.5 0 00-4.5-4.5z" /></svg>
+                    <svg id="theme-icon-dark" class="control-icon hidden" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M21.752 15.002A9.718 9.718 0 0118 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 003 11.25c0 5.385 4.365 9.75 9.75 9.75 2.833 0 5.396-1.21 7.252-3.248z" /></svg>
                 </button>
             </div>
         </nav>
@@ -87,63 +40,59 @@
 
     <main>
         <!-- Hero Section -->
-        <section class="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden">
-            <div class="absolute inset-0 dark:bg-grid-slate-700/[0.05] [mask-image:linear-gradient(to_bottom,white_5%,transparent)]"></div>
-             <div class="absolute inset-x-0 top-[-10rem] -z-10 transform-gpu overflow-hidden blur-3xl sm:top-[-20rem]" aria-hidden="true">
-                <div class="relative left-1/2 -z-10 aspect-[1155/678] w-[36.125rem] max-w-none -translate-x-1/2 rotate-[30deg] bg-gradient-to-tr from-[#ff80b5] to-[#9089fc] opacity-0 dark:opacity-30 sm:left-[calc(50%-40rem)] sm:w-[72.1875rem]" style="clip-path: polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)"></div>
-            </div>
-            <div class="container mx-auto px-6 text-center">
-                <h1 class="text-4xl md:text-6xl lg:text-7xl font-extrabold tracking-tight text-slate-900 dark:text-white">
-                    <span data-lang="hero_title_1">The Future of Governance is</span><br>
-                    <span class="gradient-text dark:dark-gradient-text" data-lang="hero_title_2">Transparent & Verifiable.</span>
+        <section class="hero-section">
+            <div class="hero-container">
+                <h1 class="hero-title">
+                    <span class="hero-title-line1" data-lang="hero_title_1">The Future of Governance is</span><br>
+                    <span class="hero-title-line2" data-lang="hero_title_2">Transparent & Verifiable.</span>
                 </h1>
-                <p class="mt-6 max-w-3xl mx-auto text-lg text-slate-600 dark:text-slate-400" data-lang="hero_subtitle">
+                <p class="hero-subtitle" data-lang="hero_subtitle">
                     Digital Chautari is a decentralized protocol for Nepal that empowers citizens and provides policymakers with a secure, transparent, and auditable toolkit to hear every voice, from the national to the local level.
                 </p>
-                <div class="mt-8 flex justify-center gap-4">
-                    <a href="#vision" class="bg-indigo-600 text-white font-semibold py-3 px-6 rounded-lg shadow-lg hover:bg-indigo-700 transition-transform hover:scale-105" data-lang="hero_cta_learn">Learn More</a>
-                    <a href="#documents" class="bg-white dark:bg-slate-800 text-slate-900 dark:text-white font-semibold py-3 px-6 rounded-lg shadow-lg hover:bg-slate-100 dark:hover:bg-slate-700 transition-transform hover:scale-105" data-lang="hero_cta_docs">Read the Documents</a>
+                <div class="hero-actions">
+                    <a href="#vision" class="hero-button-primary" data-lang="hero_cta_learn">Learn More</a>
+                    <a href="#documents" class="hero-button-secondary" data-lang="hero_cta_docs">Read the Documents</a>
                 </div>
             </div>
         </section>
 
         <!-- What / Why Section -->
-        <section id="vision" class="py-20 lg:py-32 bg-white dark:bg-slate-900/50 section-fade-in">
-            <div class="container mx-auto px-6">
-                <div class="text-center">
-                    <h2 class="text-3xl lg:text-4xl font-bold tracking-tight text-slate-900 dark:text-white" data-lang="vision_title">A New Paradigm for Public Engagement</h2>
-                    <p class="mt-4 max-w-2xl mx-auto text-lg text-slate-600 dark:text-slate-400" data-lang="vision_subtitle">
+        <section id="vision" class="vision-section section-fade-in">
+            <div class="section-container">
+                <div class="section-header">
+                    <h2 class="section-title" data-lang="vision_title">A New Paradigm for Public Engagement</h2>
+                    <p class="section-subtitle" data-lang="vision_subtitle">
                         Moving beyond traditional feedback mechanisms, Digital Chautari addresses the core challenges of modern governance with a foundation of cryptographic trust.
                     </p>
                 </div>
-                <div class="mt-16 grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="vision-cards">
                     <!-- WHAT Card -->
-                    <div class="bg-white dark:bg-slate-800 p-8 rounded-xl shadow-lg border border-slate-200 dark:border-slate-700">
-                        <div class="flex items-center justify-center h-12 w-12 rounded-lg bg-indigo-100 dark:bg-indigo-900/50">
-                             <svg class="h-6 w-6 text-indigo-600 dark:text-indigo-400" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.286zm0 13.036h.008v.008h-.008v-.008z" /></svg>
+                    <div class="vision-card">
+                        <div class="vision-card-icon indigo-icon">
+                             <svg class="icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.286zm0 13.036h.008v.008h-.008v-.008z" /></svg>
                         </div>
-                        <h3 class="mt-6 text-xl font-bold text-slate-900 dark:text-white" data-lang="what_title">What is Digital Chautari?</h3>
-                        <p class="mt-2 text-slate-600 dark:text-slate-400" data-lang="what_desc">
+                        <h3 class="vision-card-title" data-lang="what_title">What is Digital Chautari?</h3>
+                        <p class="vision-card-description" data-lang="what_desc">
                             It is a secure, decentralized protocol for public consultation and voting. It's an open standard, not a single app, that allows anyone to build tools for democratic engagement on a trustworthy, auditable foundation.
                         </p>
                     </div>
                     <!-- WHY Card -->
-                    <div class="bg-white dark:bg-slate-800 p-8 rounded-xl shadow-lg border border-slate-200 dark:border-slate-700">
-                         <div class="flex items-center justify-center h-12 w-12 rounded-lg bg-pink-100 dark:bg-pink-900/50">
-                            <svg class="h-6 w-6 text-pink-600 dark:text-pink-400" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 20.25c4.97 0 9-3.694 9-8.25s-4.03-8.25-9-8.25S3 7.444 3 12s4.03 8.25 9 8.25zM9 9.75h.008v.008H9V9.75zm3 3h.008v.008H12v-3zm3-3h.008v.008H15V9.75z" /></svg>
+                    <div class="vision-card">
+                         <div class="vision-card-icon pink-icon">
+                            <svg class="icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 20.25c4.97 0 9-3.694 9-8.25s-4.03-8.25-9-8.25S3 7.444 3 12s4.03 8.25 9 8.25zM9 9.75h.008v.008H9V9.75zm3 3h.008v.008H12v-3zm3-3h.008v.008H15V9.75z" /></svg>
                         </div>
-                        <h3 class="mt-6 text-xl font-bold text-slate-900 dark:text-white" data-lang="why_title">Why is it Needed?</h3>
-                        <p class="mt-2 text-slate-600 dark:text-slate-400" data-lang="why_desc">
+                        <h3 class="vision-card-title" data-lang="why_title">Why is it Needed?</h3>
+                        <p class="vision-card-description" data-lang="why_desc">
                             To bridge the trust gap between citizens and government. Traditional surveys are opaque and vulnerable to bias. Digital Chautari provides mathematical proof that every voice is counted correctly and that results are tamper-proof, fostering public confidence.
                         </p>
                     </div>
                      <!-- HOW Card -->
-                    <div class="bg-white dark:bg-slate-800 p-8 rounded-xl shadow-lg border border-slate-200 dark:border-slate-700">
-                         <div class="flex items-center justify-center h-12 w-12 rounded-lg bg-emerald-100 dark:bg-emerald-900/50">
-                            <svg class="h-6 w-6 text-emerald-600 dark:text-emerald-400" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z" /></svg>
+                    <div class="vision-card">
+                         <div class="vision-card-icon emerald-icon">
+                            <svg class="icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z" /></svg>
                         </div>
-                        <h3 class="mt-6 text-xl font-bold text-slate-900 dark:text-white" data-lang="how_title">How Does It Work?</h3>
-                        <p class="mt-2 text-slate-600 dark:text-slate-400" data-lang="how_desc">
+                        <h3 class="vision-card-title" data-lang="how_title">How Does It Work?</h3>
+                        <p class="vision-card-description" data-lang="how_desc">
                             Using cutting-edge cryptography. Citizens verify their identity once to get a private digital credential. They can then vote anonymously. All votes are encrypted and publicly tallied, allowing anyone to audit the final count for fairness.
                         </p>
                     </div>
@@ -155,53 +104,53 @@
         <section id="how" class="py-20 lg:py-32 section-fade-in">
             <div class="container mx-auto px-6">
                 <div class="text-center">
-                     <h2 class="text-3xl lg:text-4xl font-bold tracking-tight text-slate-900 dark:text-white" data-lang="how_section_title">The Lifecycle of a Verifiable Vote</h2>
-                     <p class="mt-4 max-w-2xl mx-auto text-lg text-slate-600 dark:text-slate-400" data-lang="how_section_subtitle">
+                     <h2 class="text-3xl lg:text-4xl font-bold tracking-tight step-title" data-lang="how_section_title">The Lifecycle of a Verifiable Vote</h2>
+                     <p class="mt-4 max-w-2xl mx-auto text-lg step-description" data-lang="how_section_subtitle">
                         From a citizen's voice to a transparent result, every step is secured by cryptography, ensuring privacy and integrity.
                     </p>
                 </div>
                 <div class="mt-16 relative">
                     <!-- The connecting line -->
-                    <div class="absolute left-1/2 top-10 bottom-10 w-0.5 bg-slate-200 dark:bg-slate-700 hidden lg:block"></div>
+                    <div class="absolute left-1/2 top-10 bottom-10 w-0.5 connecting-line hidden lg:block"></div>
                     <div class="grid lg:grid-cols-2 gap-y-16 lg:gap-x-16">
                         <!-- Step 1 -->
                         <div class="flex flex-col lg:flex-row items-center gap-6 text-center lg:text-left">
-                            <div class="flex-shrink-0 flex items-center justify-center h-16 w-16 rounded-full bg-white dark:bg-slate-800 border-2 border-indigo-500 shadow-lg relative z-10">
+                            <div class="flex-shrink-0 flex items-center justify-center h-16 w-16 rounded-full step-circle shadow-lg relative z-10">
                                 <span class="text-2xl font-bold text-indigo-500">1</span>
                             </div>
                             <div>
-                                <h3 class="text-xl font-bold text-slate-900 dark:text-white" data-lang="step1_title">Identity Verification</h3>
-                                <p class="mt-2 text-slate-600 dark:text-slate-400" data-lang="step1_desc">A citizen securely verifies their National ID once with a trusted authority to receive a private, reusable `CitizenAttributeCredential` on their device.</p>
+                                <h3 class="text-xl font-bold step-title" data-lang="step1_title">Identity Verification</h3>
+                                <p class="mt-2 step-description" data-lang="step1_desc">A citizen securely verifies their National ID once with a trusted authority to receive a private, reusable `CitizenAttributeCredential` on their device.</p>
                             </div>
                         </div>
                         <!-- Step 2 -->
                          <div class="flex flex-col lg:flex-row-reverse items-center gap-6 text-center lg:text-right">
-                            <div class="flex-shrink-0 flex items-center justify-center h-16 w-16 rounded-full bg-white dark:bg-slate-800 border-2 border-indigo-500 shadow-lg relative z-10">
+                            <div class="flex-shrink-0 flex items-center justify-center h-16 w-16 rounded-full step-circle shadow-lg relative z-10">
                                 <span class="text-2xl font-bold text-indigo-500">2</span>
                             </div>
                             <div>
-                                <h3 class="text-xl font-bold text-slate-900 dark:text-white" data-lang="step2_title">Anonymous Voting</h3>
-                                <p class="mt-2 text-slate-600 dark:text-slate-400" data-lang="step2_desc">When a poll is available, the citizen uses their credential to cast a vote. A Zero-Knowledge Proof confirms their eligibility without revealing their identity.</p>
+                                <h3 class="text-xl font-bold step-title" data-lang="step2_title">Anonymous Voting</h3>
+                                <p class="mt-2 step-description" data-lang="step2_desc">When a poll is available, the citizen uses their credential to cast a vote. A Zero-Knowledge Proof confirms their eligibility without revealing their identity.</p>
                             </div>
                         </div>
                         <!-- Step 3 -->
                         <div class="flex flex-col lg:flex-row items-center gap-6 text-center lg:text-left">
-                            <div class="flex-shrink-0 flex items-center justify-center h-16 w-16 rounded-full bg-white dark:bg-slate-800 border-2 border-indigo-500 shadow-lg relative z-10">
+                            <div class="flex-shrink-0 flex items-center justify-center h-16 w-16 rounded-full step-circle shadow-lg relative z-10">
                                 <span class="text-2xl font-bold text-indigo-500">3</span>
                             </div>
                             <div>
-                                <h3 class="text-xl font-bold text-slate-900 dark:text-white" data-lang="step3_title">Encrypted & Public</h3>
-                                <p class="mt-2 text-slate-600 dark:text-slate-400" data-lang="step3_desc">The anonymous vote is encrypted and posted to a public, transparent bulletin board. Individual votes cannot be read, but their existence is public record.</p>
+                                <h3 class="text-xl font-bold step-title" data-lang="step3_title">Encrypted & Public</h3>
+                                <p class="mt-2 step-description" data-lang="step3_desc">The anonymous vote is encrypted and posted to a public, transparent bulletin board. Individual votes cannot be read, but their existence is public record.</p>
                             </div>
                         </div>
                         <!-- Step 4 -->
                         <div class="flex flex-col lg:flex-row-reverse items-center gap-6 text-center lg:text-right">
-                            <div class="flex-shrink-0 flex items-center justify-center h-16 w-16 rounded-full bg-white dark:bg-slate-800 border-2 border-indigo-500 shadow-lg relative z-10">
+                            <div class="flex-shrink-0 flex items-center justify-center h-16 w-16 rounded-full step-circle shadow-lg relative z-10">
                                 <span class="text-2xl font-bold text-indigo-500">4</span>
                             </div>
                             <div>
-                                <h3 class="text-xl font-bold text-slate-900 dark:text-white" data-lang="step4_title">Verifiable Tally</h3>
-                                <p class="mt-2 text-slate-600 dark:text-slate-400" data-lang="step4_desc">All encrypted votes are mathematically combined into a final tally. Anyone can independently run the same calculation to verify the final result is 100% accurate and tamper-free.</p>
+                                <h3 class="text-xl font-bold step-title" data-lang="step4_title">Verifiable Tally</h3>
+                                <p class="mt-2 step-description" data-lang="step4_desc">All encrypted votes are mathematically combined into a final tally. Anyone can independently run the same calculation to verify the final result is 100% accurate and tamper-free.</p>
                             </div>
                         </div>
                     </div>
@@ -211,11 +160,11 @@
 
 
         <!-- Documents Section -->
-        <section id="documents" class="py-20 lg:py-32 bg-white dark:bg-slate-900/50 section-fade-in">
+        <section id="documents" class="py-20 lg:py-32 section-fade-in">
             <div class="container mx-auto px-6">
                 <div class="text-center">
-                     <h2 class="text-3xl lg:text-4xl font-bold tracking-tight text-slate-900 dark:text-white" data-lang="docs_title">Project Documentation</h2>
-                    <p class="mt-4 max-w-2xl mx-auto text-lg text-slate-600 dark:text-slate-400" data-lang="docs_subtitle">
+                     <h2 class="text-3xl lg:text-4xl font-bold tracking-tight step-title" data-lang="docs_title">Project Documentation</h2>
+                    <p class="mt-4 max-w-2xl mx-auto text-lg step-description" data-lang="docs_subtitle">
                         Explore the complete vision, from a high-level overview for policymakers to the deep-dive technical specifications for developers.
                     </p>
                     <div class="mt-6">
@@ -229,43 +178,43 @@
                 </div>
                 <div class="mt-16 grid md:grid-cols-2 gap-8">
                     <!-- Document Cards -->
-                    <div class="bg-white dark:bg-slate-800 p-8 rounded-xl shadow-lg border border-slate-200 dark:border-slate-700 flex flex-col">
-                        <h3 class="text-xl font-bold text-slate-900 dark:text-white" data-lang="doc1_title">Concept Note</h3>
-                        <p class="mt-2 text-slate-600 dark:text-slate-400 flex-grow" data-lang="doc1_desc">A 1-page executive summary for policymakers and leaders, outlining the core problem and the Digital Chautari solution for Nepal.</p>
-                        <a href="Docs/_site/Concept Note.html" target="_blank" class="mt-6 bg-indigo-50 text-indigo-600 dark:bg-indigo-900/50 dark:text-indigo-400 font-semibold py-2 px-4 rounded-lg hover:bg-indigo-100 dark:hover:bg-indigo-900 transition-colors inline-block text-center" data-lang="doc_cta">Read More</a>
+                    <div class="document-card p-8 rounded-xl shadow-lg flex flex-col">
+                        <h3 class="text-xl font-bold step-title">Concept Note</h3>
+                        <p class="mt-2 step-description flex-grow">A 1-page executive summary for policymakers and leaders, outlining the core problem and the Digital Chautari solution for Nepal.</p>
+                        <button onclick="openModal('modal1')" class="document-button mt-6 font-semibold py-2 px-4 rounded-lg hover:bg-indigo-100 dark:hover:bg-indigo-900 transition-colors inline-block text-center cursor-pointer">Read More</button>
                     </div>
 
-                    <div class="bg-white dark:bg-slate-800 p-8 rounded-xl shadow-lg border border-slate-200 dark:border-slate-700 flex flex-col">
-                        <h3 class="text-xl font-bold text-slate-900 dark:text-white" data-lang="doc2_title">High-Level White Paper</h3>
-                        <p class="mt-2 text-slate-600 dark:text-slate-400 flex-grow" data-lang="doc2_desc">A detailed framework for stakeholders, explaining the system's vision, functionality, implementation roadmap, and benefits for Nepal.</p>
-                        <a href="Docs/_site/White Paper.html" target="_blank" class="mt-6 bg-indigo-50 text-indigo-600 dark:bg-indigo-900/50 dark:text-indigo-400 font-semibold py-2 px-4 rounded-lg hover:bg-indigo-100 dark:hover:bg-indigo-900 transition-colors inline-block text-center" data-lang="doc_cta">Read More</a>
+                    <div class="document-card p-8 rounded-xl shadow-lg flex flex-col">
+                        <h3 class="text-xl font-bold step-title">High-Level White Paper</h3>
+                        <p class="mt-2 step-description flex-grow">A detailed framework for stakeholders, explaining the system's vision, functionality, implementation roadmap, and benefits for Nepal.</p>
+                        <button onclick="openModal('modal2')" class="document-button mt-6 font-semibold py-2 px-4 rounded-lg hover:bg-indigo-100 dark:hover:bg-indigo-900 transition-colors inline-block text-center cursor-pointer">Read More</button>
                     </div>
 
-                    <div class="bg-white dark:bg-slate-800 p-8 rounded-xl shadow-lg border border-slate-200 dark:border-slate-700 flex flex-col">
-                        <h3 class="text-xl font-bold text-slate-900 dark:text-white" data-lang="doc3_title">Technical Specification</h3>
-                        <p class="mt-2 text-slate-600 dark:text-slate-400 flex-grow" data-lang="doc3_desc">The complete technical blueprint of the protocol, detailing the architecture, cryptography, data schemas, and security model for engineers.</p>
-                        <a href="Docs/_site/Technical Specification.html" target="_blank" class="mt-6 bg-indigo-50 text-indigo-600 dark:bg-indigo-900/50 dark:text-indigo-400 font-semibold py-2 px-4 rounded-lg hover:bg-indigo-100 dark:hover:bg-indigo-900 transition-colors inline-block text-center" data-lang="doc_cta">Read More</a>
+                    <div class="document-card p-8 rounded-xl shadow-lg flex flex-col">
+                        <h3 class="text-xl font-bold step-title">Technical Specification</h3>
+                        <p class="mt-2 step-description flex-grow">The complete technical blueprint of the protocol, detailing the architecture, cryptography, data schemas, and security model for engineers.</p>
+                        <button onclick="openModal('modal3')" class="document-button mt-6 font-semibold py-2 px-4 rounded-lg hover:bg-indigo-100 dark:hover:bg-indigo-900 transition-colors inline-block text-center cursor-pointer">Read More</button>
                     </div>
 
-                    <div class="bg-white dark:bg-slate-800 p-8 rounded-xl shadow-lg border border-slate-200 dark:border-slate-700 flex flex-col">
-                        <h3 class="text-xl font-bold text-slate-900 dark:text-white" data-lang="doc4_title">Jurisdictional Scoping Module</h3>
-                        <p class="mt-2 text-slate-600 dark:text-slate-400 flex-grow" data-lang="doc4_desc">A technical addendum explaining how the protocol supports layered governance, from federal to local ward levels, with privacy-preserving proofs.</p>
-                        <a href="Docs/_site/Jurisdictional Scoping Module.html" target="_blank" class="mt-6 bg-indigo-50 text-indigo-600 dark:bg-indigo-900/50 dark:text-indigo-400 font-semibold py-2 px-4 rounded-lg hover:bg-indigo-100 dark:hover:bg-indigo-900 transition-colors inline-block text-center" data-lang="doc_cta">Read More</a>
+                    <div class="document-card p-8 rounded-xl shadow-lg flex flex-col">
+                        <h3 class="text-xl font-bold step-title">Jurisdictional Scoping Module</h3>
+                        <p class="mt-2 step-description flex-grow">A technical addendum explaining how the protocol supports layered governance, from federal to local ward levels, with privacy-preserving proofs.</p>
+                        <button onclick="openModal('modal4')" class="document-button mt-6 font-semibold py-2 px-4 rounded-lg hover:bg-indigo-100 dark:hover:bg-indigo-900 transition-colors inline-block text-center cursor-pointer">Read More</button>
                     </div>
 
                     <!-- Additional Document -->
-                    <div class="bg-white dark:bg-slate-800 p-8 rounded-xl shadow-lg border border-slate-200 dark:border-slate-700 flex flex-col md:col-span-2">
-                        <h3 class="text-xl font-bold text-slate-900 dark:text-white">Protocol Expansion Plan</h3>
-                        <p class="mt-2 text-slate-600 dark:text-slate-400 flex-grow">Detailed expansion plan for enhancing the protocol with network communication specifications, cryptographic primitive details, key management, and long-term scalability.</p>
-                        <a href="Docs/_site/Protocol Expansion Plan.html" target="_blank" class="mt-6 bg-indigo-50 text-indigo-600 dark:bg-indigo-900/50 dark:text-indigo-400 font-semibold py-2 px-4 rounded-lg hover:bg-indigo-100 dark:hover:bg-indigo-900 transition-colors inline-block text-center" data-lang="doc_cta">Read More</a>
+                    <div class="document-card p-8 rounded-xl shadow-lg flex flex-col md:col-span-2">
+                        <h3 class="text-xl font-bold step-title">Protocol Expansion Plan</h3>
+                        <p class="mt-2 step-description flex-grow">Detailed expansion plan for enhancing the protocol with network communication specifications, cryptographic primitive details, key management, and long-term scalability.</p>
+                        <a href="Docs/_site/Protocol Expansion Plan.html" target="_blank" class="document-button mt-6 font-semibold py-2 px-4 rounded-lg hover:bg-indigo-100 dark:hover:bg-indigo-900 transition-colors inline-block text-center">Read More</a>
                     </div>
                 </div>
             </div>
         </section>
 
         <!-- Footer -->
-        <footer class="bg-slate-900 dark:bg-black">
-            <div class="container mx-auto px-6 py-12 text-center text-slate-400">
+        <footer class="bg-slate-50 dark:bg-black">
+            <div class="container mx-auto px-6 py-12 text-center text-slate-600 dark:text-slate-400">
                 <p data-lang="footer_text">&copy; 2025 Digital Chautari Initiative. An open framework for a stronger democracy.</p>
             </div>
         </footer>
@@ -278,9 +227,9 @@
             <div class="modal-content bg-white dark:bg-slate-900 rounded-xl shadow-2xl w-full max-w-4xl max-h-[90vh] overflow-y-auto transform scale-95" onclick="event.stopPropagation()">
                 <div class="sticky top-0 bg-white dark:bg-slate-900 p-6 border-b border-slate-200 dark:border-slate-800 flex justify-between items-center">
                     <h2 class="text-2xl font-bold text-slate-900 dark:text-white" data-lang="doc1_title_modal">Concept Note: Digital Chautari</h2>
-                    <button onclick="closeModal('modal1')" class="text-slate-500 hover:text-slate-800 dark:hover:text-slate-200">&times;</button>
+                    <button onclick="closeModal('modal1')" class="text-slate-700 hover:text-slate-900 dark:text-slate-500 dark:hover:text-slate-200">&times;</button>
                 </div>
-                <div class="p-8 prose dark:prose-invert max-w-none">
+                <div class="p-8 prose prose-slate dark:prose-invert max-w-none">
                     <h3 data-lang="modal1_h1">To: Nepali Government Officials and Policymakers</h3>
                     <h4 data-lang="modal1_h2">From: Proponents of Digital Governance</h4>
                     <h4 data-lang="modal1_h3">Date: September 7, 2025</h4>
@@ -318,9 +267,9 @@
              <div class="modal-content bg-white dark:bg-slate-900 rounded-xl shadow-2xl w-full max-w-4xl max-h-[90vh] overflow-y-auto transform scale-95" onclick="event.stopPropagation()">
                 <div class="sticky top-0 bg-white dark:bg-slate-900 p-6 border-b border-slate-200 dark:border-slate-800 flex justify-between items-center">
                     <h2 class="text-2xl font-bold text-slate-900 dark:text-white" data-lang="doc2_title_modal">White Paper: The Digital Chautari Framework</h2>
-                    <button onclick="closeModal('modal2')" class="text-slate-500 hover:text-slate-800 dark:hover:text-slate-200">&times;</button>
+                    <button onclick="closeModal('modal2')" class="text-slate-700 hover:text-slate-900 dark:text-slate-500 dark:hover:text-slate-200">&times;</button>
                 </div>
-                <div class="p-8 prose dark:prose-invert max-w-none">
+                <div class="p-8 prose prose-slate dark:prose-invert max-w-none">
                    <!-- Content injected from JS -->
                    <div id="modal2-content"></div>
                 </div>
@@ -332,7 +281,7 @@
              <div class="modal-content bg-white dark:bg-slate-900 rounded-xl shadow-2xl w-full max-w-4xl max-h-[90vh] overflow-y-auto transform scale-95" onclick="event.stopPropagation()">
                 <div class="sticky top-0 bg-white dark:bg-slate-900 p-6 border-b border-slate-200 dark:border-slate-800 flex justify-between items-center">
                     <h2 class="text-2xl font-bold text-slate-900 dark:text-white" data-lang="doc3_title_modal">Technical Specification: The Vox Populi Protocol</h2>
-                    <button onclick="closeModal('modal3')" class="text-slate-500 hover:text-slate-800 dark:hover:text-slate-200">&times;</button>
+                    <button onclick="closeModal('modal3')" class="text-slate-700 hover:text-slate-900 dark:text-slate-500 dark:hover:text-slate-200">&times;</button>
                 </div>
                 <div class="p-8 prose dark:prose-invert max-w-none">
                    <div id="modal3-content"></div>
@@ -345,9 +294,9 @@
             <div class="modal-content bg-white dark:bg-slate-900 rounded-xl shadow-2xl w-full max-w-4xl max-h-[90vh] overflow-y-auto transform scale-95" onclick="event.stopPropagation()">
                 <div class="sticky top-0 bg-white dark:bg-slate-900 p-6 border-b border-slate-200 dark:border-slate-800 flex justify-between items-center">
                     <h2 class="text-2xl font-bold text-slate-900 dark:text-white" data-lang="doc4_title_modal">Technical Addendum: Jurisdictional Scoping Module</h2>
-                    <button onclick="closeModal('modal4')" class="text-slate-500 hover:text-slate-800 dark:hover:text-slate-200">&times;</button>
+                    <button onclick="closeModal('modal4')" class="text-slate-700 hover:text-slate-900 dark:text-slate-500 dark:hover:text-slate-200">&times;</button>
                 </div>
-                <div class="p-8 prose dark:prose-invert max-w-none">
+                <div class="p-8 prose prose-slate dark:prose-invert max-w-none">
                     <div id="modal4-content"></div>
                 </div>
             </div>
@@ -355,297 +304,11 @@
 
     </div>
 
-
-    <script>
-        const translations = {
-            en: {
-                header_title: "Digital Chautari",
-                nav_vision: "The Vision",
-                nav_how: "How It Works",
-                nav_docs: "Documents",
-                hero_title_1: "The Future of Governance is",
-                hero_title_2: "Transparent & Verifiable.",
-                hero_subtitle: "Digital Chautari is a decentralized protocol for Nepal that empowers citizens and provides policymakers with a secure, transparent, and auditable toolkit to hear every voice, from the national to the local level.",
-                hero_cta_learn: "Learn More",
-                hero_cta_docs: "Read the Documents",
-                vision_title: "A New Paradigm for Public Engagement",
-                vision_subtitle: "Moving beyond traditional feedback mechanisms, Digital Chautari addresses the core challenges of modern governance with a foundation of cryptographic trust.",
-                what_title: "What is Digital Chautari?",
-                what_desc: "It is a secure, decentralized protocol for public consultation and voting. It's an open standard, not a single app, that allows anyone to build tools for democratic engagement on a trustworthy, auditable foundation.",
-                why_title: "Why is it Needed?",
-                why_desc: "To bridge the trust gap between citizens and government. Traditional surveys are opaque and vulnerable to bias. Digital Chautari provides mathematical proof that every voice is counted correctly and that results are tamper-proof, fostering public confidence.",
-                how_title: "How Does It Work?",
-                how_desc: "Using cutting-edge cryptography. Citizens verify their identity once to get a private digital credential. They can then vote anonymously. All votes are encrypted and publicly tallied, allowing anyone to audit the final count for fairness.",
-                how_section_title: "The Lifecycle of a Verifiable Vote",
-                how_section_subtitle: "From a citizen's voice to a transparent result, every step is secured by cryptography, ensuring privacy and integrity.",
-                step1_title: "Identity Verification",
-                step1_desc: "A citizen securely verifies their National ID once with a trusted authority to receive a private, reusable <code>CitizenAttributeCredential</code> on their device.",
-                step2_title: "Anonymous Voting",
-                step2_desc: "When a poll is available, the citizen uses their credential to cast a vote. A Zero-Knowledge Proof confirms their eligibility without revealing their identity.",
-                step3_title: "Encrypted & Public",
-                step3_desc: "The anonymous vote is encrypted and posted to a public, transparent bulletin board. Individual votes cannot be read, but their existence is public record.",
-                step4_title: "Verifiable Tally",
-                step4_desc: "All encrypted votes are mathematically combined into a final tally. Anyone can independently run the same calculation to verify the final result is 100% accurate and tamper-free.",
-                docs_title: "Project Documentation",
-                docs_subtitle: "Explore the complete vision, from a high-level overview for policymakers to the deep-dive technical specifications for developers.",
-                doc_cta: "Read More",
-                doc1_title: "Concept Note",
-                doc1_desc: "A 1-page executive summary for policymakers and leaders, outlining the core problem and the Digital Chautari solution for Nepal.",
-                doc2_title: "High-Level White Paper",
-                doc2_desc: "A detailed framework for stakeholders, explaining the system's vision, functionality, implementation roadmap, and benefits for Nepal.",
-                doc3_title: "Technical Specification",
-                doc3_desc: "The complete technical blueprint of the protocol, detailing the architecture, cryptography, data schemas, and security model for engineers.",
-                doc4_title: "Jurisdictional Scoping Module",
-                doc4_desc: "A technical addendum explaining how the protocol supports layered governance, from federal to local ward levels, with privacy-preserving proofs.",
-                footer_text: "© 2025 Digital Chautari Initiative. An open framework for a stronger democracy.",
-
-                // Modal content
-                doc1_title_modal: "Concept Note: Digital Chautari",
-                modal1_h1: "To: Nepali Government Officials and Policymakers",
-                modal1_h2: "From: Proponents of Digital Governance",
-                modal1_h3: "Date: September 7, 2025",
-                modal1_h4: "Subject: Digital Chautari - A Secure Digital Bridge Between Citizens and Government",
-                modal1_s1_title: "1. The Problem: A Growing Trust Deficit",
-                modal1_s1_p1: "In the digital age, the channels between the government and its citizens remain largely traditional, slow, and opaque. Public consultations often fail to capture a representative sample of public opinion, and citizens lack confidence that their voices are heard or that official decisions are free from bias. This leads to a trust deficit that hampers effective governance and national development.",
-                modal1_s2_title: "2. The Vision: A Tool for Transparent Governance",
-                modal1_s2_p1: "We propose the Digital Chautari (“Digital Public Square”) Initiative, a project to develop a secure, transparent, and verifiable digital toolkit for public consultation. This system is not just another survey app; it is a foundational piece of public infrastructure designed to provide policymakers with an un-tamperable, clear, and direct line to the true voice of the Nepali people. For the first time, from a constitutional referendum to a local ward’s budget priorities, we can collect public will with mathematical certainty.",
-                modal1_s3_title: "3. How It Works: Security and Anonymity by Design",
-                modal1_s3_li1: "One Person, One Vote: Citizens verify their identity once using their National ID in a secure, private process. This grants them a digital credential that allows them to participate in any poll or vote they are eligible for.",
-                modal1_s3_li2: "Complete Anonymity: When a citizen voices their opinion, their identity is cryptographically separated from their vote. No one—not even the government—can know how an individual voted.",
-                modal1_s3_li3: "End-to-End Verifiability: Every vote is encrypted and posted to a public, transparent \"digital bulletin board.\" The final tally is computed from these encrypted votes, and anyone can independently verify that the result is 100% accurate and has not been manipulated.",
-                modal1_s4_title: "4. Benefits for Nepal",
-                modal1_s4_li1: "Enhanced Public Trust: Rebuilds faith in democratic processes by making them transparent and auditable.",
-                modal1_s4_li2: "Data-Driven Policy: Provides policymakers with accurate, unbiased data on public sentiment, leading to more effective and responsive governance.",
-                modal1_s4_li3: "Inclusive Participation: Gives a voice to minorities and those in remote areas, ensuring that policies reflect the needs of all Nepalis.",
-                modal1_s4_li4: "Layered Governance: The system is designed for Nepal’s federal structure, enabling polls at the national, provincial, and local municipal/ward levels.",
-                modal1_s5_title: "5. The Path Forward",
-                modal1_s5_p1: "This is not a proposal to replace existing democratic institutions but to strengthen them with modern, secure technology. We have prepared a comprehensive white paper and technical specification detailing the protocol. We request a meeting to present this vision and discuss a pilot project, demonstrating how Digital Chautari can become a cornerstone of the nation’s digital future.",
-                doc2_title_modal: "White Paper: The Digital Chautari Framework",
-                doc3_title_modal: "Technical Specification: The Vox Populi Protocol",
-                doc4_title_modal: "Technical Addendum: Jurisdictional Scoping Module",
-            },
-            np: {
-                header_title: "डिजिटल चौतारी",
-                nav_vision: "परिकल्पना",
-                nav_how: "यसले कसरी काम गर्छ",
-                nav_docs: "कागजातहरू",
-                hero_title_1: "शासनको भविष्य हो",
-                hero_title_2: "पारदर्शी र प्रमाणिक।",
-                hero_subtitle: "डिजिटल चौतारी नेपालको लागि एक विकेन्द्रीकृत प्रोटोकल हो जसले नागरिकहरूलाई सशक्त बनाउँछ र नीति निर्माताहरूलाई राष्ट्रिय देखि स्थानीय स्तरसम्म हरेक आवाज सुन्नको लागि एक सुरक्षित, पारदर्शी, र लेखापरीक्षण योग्य टुलकिट प्रदान गर्दछ।",
-                hero_cta_learn: "थप जान्नुहोस्",
-                hero_cta_docs: "कागजातहरू पढ्नुहोस्",
-                vision_title: "सार्वजनिक सहभागिताको लागि नयाँ प्रतिमान",
-                vision_subtitle: "परम्परागत प्रतिक्रिया संयन्त्रभन्दा पर, डिजिटल चौतारीले आधुनिक शासनका मुख्य चुनौतीहरूलाई क्रिप्टोग्राफिक विश्वासको आधारमा सम्बोधन गर्दछ।",
-                what_title: "डिजिटल चौतारी के हो?",
-                what_desc: "यो सार्वजनिक परामर्श र मतदानको लागि एक सुरक्षित, विकेन्द्रीकृत प्रोटोकल हो। यो एउटा खुला मानक हो, एउटा एप होइन, जसले जो कोहीलाई पनि विश्वासिलो, लेखापरीक्षण योग्य आधारमा लोकतान्त्रिक संलग्नताका लागि उपकरणहरू बनाउन अनुमति दिन्छ।",
-                why_title: "यो किन आवश्यक छ?",
-                why_desc: "नागरिक र सरकारबीचको विश्वासको खाडल पुर्न। परम्परागत सर्वेक्षणहरू अपारदर्शी र पूर्वाग्रहको जोखिममा हुन्छन्। VPP ले हरेक आवाज सही रूपमा गणना गरिएको र परिणामहरू छेडछाड-मुक्त छन् भनी गणितीय प्रमाण प्रदान गर्दछ, जसले सार्वजनिक विश्वासलाई बढावा दिन्छ।",
-                how_title: "यसले कसरी काम गर्छ?",
-                how_desc: "अत्याधुनिक क्रिप्टोग्राफी प्रयोग गरेर। नागरिकहरूले आफ्नो पहिचान एक पटक प्रमाणित गरेर एक निजी डिजिटल प्रमाण-पत्र प्राप्त गर्छन्। त्यसपछि उनीहरूले गुमनाम रूपमा मतदान गर्न सक्छन्। सबै मतहरू इन्क्रिप्टेड र सार्वजनिक रूपमा गणना गरिन्छ, जसले जो कोहीलाई पनि अन्तिम गणना निष्पक्षताको लागि लेखापरीक्षण गर्न अनुमति दिन्छ।",
-                how_section_title: "एक प्रमाणिक मतको जीवनचक्र",
-                how_section_subtitle: "एक नागरिकको आवाज देखि एक पारदर्शी परिणाम सम्म, प्रत्येक चरण क्रिप्टोग्राफी द्वारा सुरक्षित छ, गोपनीयता र अखण्डता सुनिश्चित गर्दै।",
-                step1_title: "पहिचान प्रमाणीकरण",
-                step1_desc: "एक नागरिकले आफ्नो उपकरणमा एक निजी, पुन: प्रयोज्य <code>नागरिक विशेषता प्रमाण-पत्र</code> प्राप्त गर्नका लागि एक पटक विश्वासिलो प्राधिकरणसँग आफ्नो राष्ट्रिय परिचय पत्र सुरक्षित रूपमा प्रमाणित गर्दछ।",
-                step2_title: "गुमनाम मतदान",
-                step2_desc: "जब एक सर्वेक्षण उपलब्ध हुन्छ, नागरिकले आफ्नो प्रमाण-पत्र प्रयोग गरेर मत हाल्छ। एक शून्य-ज्ञान प्रमाणले उनीहरूको पहिचान प्रकट नगरी उनीहरूको योग्यता पुष्टि गर्दछ।",
-                step3_title: "इन्क्रिप्टेड र सार्वजनिक",
-                step3_desc: "गुमनाम मत इन्क्रिप्ट गरिन्छ र एक सार्वजनिक, पारदर्शी बुलेटिन बोर्डमा पोस्ट गरिन्छ। व्यक्तिगत मतहरू पढ्न सकिँदैन, तर तिनीहरूको अस्तित्व सार्वजनिक रेकर्ड हो।",
-                step4_title: "प्रमाणिक गणना",
-                step4_desc: "सबै इन्क्रिप्टेड मतहरू गणितीय रूपमा एक अन्तिम गणनामा मिलाइन्छ। जो कोहीले पनि स्वतन्त्र रूपमा उही गणना चलाएर अन्तिम परिणाम १००% सही र छेडछाड-मुक्त छ भनी प्रमाणित गर्न सक्छ।",
-                docs_title: "परियोजना कागजातहरू",
-                docs_subtitle: "नीति निर्माताहरूका लागि उच्च-स्तरीय सिंहावलोकन देखि विकासकर्ताहरूका लागि गहिरो प्राविधिक विवरणहरू सम्म, पूर्ण परिकल्पना अन्वेषण गर्नुहोस्।",
-                doc_cta: "थप पढ्नुहोस्",
-                doc1_title: "अवधारणा नोट",
-                doc1_desc: "नीति निर्माता र नेताहरूका लागि १-पृष्ठको कार्यकारी सारांश, नेपालका लागि मुख्य समस्या र Digital Chautari समाधानको रूपरेखा प्रस्तुत गर्दै।",
-                doc2_title: "उच्च-स्तरीय श्वेतपत्र",
-                doc2_desc: "सरोकारवालाहरूका लागि विस्तृत रूपरेखा, प्रणालीको परिकल्पना, कार्यक्षमता, कार्यान्वयन रोडम्याप, र नेपालका लागि फाइदाहरू व्याख्या गर्दै।",
-                doc3_title: "प्राविधिक विशिष्टता",
-                doc3_desc: "प्रोटोकलको पूर्ण प्राविधिक खाका, इन्जिनियरहरूका लागि वास्तुकला, क्रिप्टोग्राफी, डेटा स्किमा, र सुरक्षा मोडेलको विवरण दिँदै।",
-                doc4_title: "क्षेत्राधिकार स्कोपिङ मोड्युल",
-                doc4_desc: "एक प्राविधिक परिशिष्ट जसले प्रोटोकलले संघीय देखि स्थानीय वार्ड स्तरसम्म, गोपनीयता-संरक्षण प्रमाणहरू सहित, तहगत शासनलाई कसरी समर्थन गर्दछ भनेर व्याख्या गर्दछ।",
-                footer_text: "© २०२५ डिजिटल चौतारी पहल। एक बलियो लोकतन्त्रको लागि खुला रूपरेखा।",
-
-                // Modal content
-                doc1_title_modal: "अवधारणा नोट: डिजिटल चौतारी",
-                modal1_h1: "सेवामा: नेपाली सरकारी अधिकारी तथा नीति निर्माताहरू",
-                modal1_h2: "प्रेषक: डिजिटल गभर्नेन्सका प्रस्तावकहरू",
-                modal1_h3: "मिति: सेप्टेम्बर ७, २०२५",
-                modal1_h4: "विषय: डिजिटल चौतारी - नागरिक र सरकार बीच एक सुरक्षित डिजिटल पुल",
-                modal1_s1_title: "१. समस्या: बढ्दो विश्वासको कमी",
-                modal1_s1_p1: "डिजिटल युगमा, सरकार र यसका नागरिकहरू बीचको च्यानलहरू धेरै हदसम्म परम्परागत, ढिलो र अपारदर्शी छन्। सार्वजनिक परामर्शले अक्सर जनमतको प्रतिनिधि नमूना लिन असफल हुन्छ, र नागरिकहरूलाई उनीहरूको आवाज सुनिएको वा आधिकारिक निर्णयहरू पूर्वाग्रहमुक्त छन् भन्ने विश्वासको कमी हुन्छ। यसले विश्वासको कमी निम्त्याउँछ जसले प्रभावकारी शासन र राष्ट्रिय विकासमा बाधा पुर्‍याउँछ।",
-                modal1_s2_title: "२. परिकल्पना: पारदर्शी शासनको लागि एक उपकरण",
-                modal1_s2_p1: "हामी डिजिटल चौतारी (“डिजिटल सार्वजनिक स्थल”) पहल प्रस्ताव गर्दछौं, जुन सार्वजनिक परामर्शको लागि एक सुरक्षित, पारदर्शी र प्रमाणिक डिजिटल टुलकिट विकास गर्ने परियोजना हो। यो प्रणाली अर्को सर्वेक्षण एप मात्र होइन; यो नीति निर्माताहरूलाई नेपाली जनताको साँचो आवाजमा एक छेडछाड-मुक्त, स्पष्ट, र प्रत्यक्ष लाइन प्रदान गर्न डिजाइन गरिएको सार्वजनिक पूर्वाधारको एक आधारभूत टुक्रा हो। पहिलो पटक, संवैधानिक जनमत संग्रह देखि स्थानीय वार्डको बजेट प्राथमिकता सम्म, हामी गणितीय निश्चितताका साथ सार्वजनिक इच्छा संकलन गर्न सक्छौं।",
-                modal1_s3_title: "३. यसले कसरी काम गर्छ: सुरक्षा र गुमनामता डिजाइनद्वारा",
-                modal1_s3_li1: "एक व्यक्ति, एक मत: नागरिकहरूले आफ्नो राष्ट्रिय परिचय पत्र प्रयोग गरेर एक पटक आफ्नो पहिलो पहिचान एक सुरक्षित, निजी प्रक्रियामा प्रमाणित गर्छन्। यसले उनीहरूलाई एक डिजिटल प्रमाण-पत्र प्रदान गर्दछ जसले उनीहरूलाई योग्य भएको कुनै पनि सर्वेक्षण वा मतदानमा भाग लिन अनुमति दिन्छ।",
-                modal1_s3_li2: "पूर्ण गुमनामता: जब एक नागरिकले आफ्नो राय व्यक्त गर्दछ, उनीहरूको पहिचान क्रिप्टोग्राफिक रूपमा उनीहरूको मतबाट अलग गरिन्छ। कसैले पनि - सरकारले पनि - एक व्यक्तिले कसरी मतदान गर्यो भनेर थाहा पाउन सक्दैन।",
-                modal1_s3_li3: "सुरूदेखि अन्त्यसम्म प्रमाणिकता: प्रत्येक मत इन्क्रिप्ट गरिन्छ र एक सार्वजनिक, पारदर्शी \"डिजिटल बुलेटिन बोर्ड\" मा पोस्ट गरिन्छ। अन्तिम गणना यी इन्क्रिप्टेड मतहरूबाट गणना गरिन्छ, र जो कोहीले पनि स्वतन्त्र रूपमा परिणाम १००% सही छ र हेरफेर गरिएको छैन भनी प्रमाणित गर्न सक्छ।",
-                modal1_s4_title: "४. नेपालका लागि फाइदाहरू",
-                modal1_s4_li1: "बढेको सार्वजनिक विश्वास: लोकतान्त्रिक प्रक्रियाहरूलाई पारदर्शी र लेखापरीक्षण योग्य बनाएर तिनीहरूमा विश्वास पुनर्निर्माण गर्दछ।",
-                modal1_s4_li2: "तथ्याङ्कमा आधारित नीति: नीति निर्माताहरूलाई जनभावनाको सही, निष्पक्ष तथ्याङ्क प्रदान गर्दछ, जसले अझ प्रभावकारी र उत्तरदायी शासन निम्त्याउँछ।",
-                modal1_s4_li3: "समावेशी सहभागिता: अल्पसंख्यक र दुर्गम क्षेत्रका मानिसहरूलाई आवाज दिन्छ, नीतिहरूले सबै नेपालीहरूको आवश्यकतालाई प्रतिबिम्बित गर्दछ भन्ने सुनिश्चित गर्दै।",
-                modal1_s4_li4: "तहगत शासन: यो प्रणाली नेपालको संघीय संरचनाको लागि डिजाइन गरिएको हो, जसले राष्ट्रिय, प्रदेशीय, र स्थानीय नगरपालिका/वार्ड स्तरहरूमा सर्वेक्षणहरू सक्षम पार्दछ।",
-                modal1_s5_title: "५. अगाडिको बाटो",
-                modal1_s5_p1: "यो विद्यमान लोकतान्त्रिक संस्थाहरूलाई प्रतिस्थापन गर्ने प्रस्ताव होइन, तर तिनीहरूलाई आधुनिक, सुरक्षित प्रविधिले बलियो बनाउने प्रस्ताव हो। हामीले प्रोटोकलको विस्तृत विवरण सहितको एक विस्तृत श्वेतपत्र र प्राविधिक विशिष्टता तयार गरेका छौं। हामी यो परिकल्पना प्रस्तुत गर्न र एक पाइलट परियोजनामा छलफल गर्न एक बैठकको लागि अनुरोध गर्दछौं, जसले डिजिटल चौतारी कसरी राष्ट्रको डिजिटल भविष्यको आधारशिला बन्न सक्छ भनेर प्रदर्शन गर्दछ।",
-                doc2_title_modal: "श्वेतपत्र: डिजिटल चौतारी फ्रेमवर्क",
-                doc3_title_modal: "प्राविधिक विशिष्टता: भोक्स पोपुली प्रोटोकल",
-                doc4_title_modal: "प्राविधिक परिशिष्ट: क्षेत्राधिकार स्कोपिङ मोड्युल",
-            }
-        };
-
-        let currentLang = 'en';
-
-        // --- Theme Toggle ---
-        const themeToggle = document.getElementById('theme-toggle');
-        const themeIconLight = document.getElementById('theme-icon-light');
-        const themeIconDark = document.getElementById('theme-icon-dark');
-        const docElement = document.documentElement;
-
-        // Apply theme on initial load
-        if (localStorage.getItem('theme') === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-            docElement.classList.add('dark');
-            themeIconLight.classList.add('hidden');
-            themeIconDark.classList.remove('hidden');
-        } else {
-            docElement.classList.remove('dark');
-        }
-
-        themeToggle.addEventListener('click', () => {
-            docElement.classList.toggle('dark');
-            themeIconLight.classList.toggle('hidden');
-            themeIconDark.classList.toggle('hidden');
-            localStorage.setItem('theme', docElement.classList.contains('dark') ? 'dark' : 'light');
-        });
-
-        // --- Language Switch ---
-        const langSwitch = document.getElementById('lang-switch');
-        const langText = document.getElementById('lang-text');
-
-        function setLanguage(lang) {
-            currentLang = lang;
-            langText.textContent = lang.toUpperCase();
-            document.querySelectorAll('[data-lang]').forEach(el => {
-                const key = el.getAttribute('data-lang');
-                if (translations[lang] && translations[lang][key]) {
-                    el.textContent = translations[lang][key];
-                }
-            });
-            // Also set the main lang attribute
-            document.documentElement.lang = lang === 'np' ? 'ne' : 'en';
-        }
-
-        langSwitch.addEventListener('click', () => {
-            const newLang = currentLang === 'en' ? 'np' : 'en';
-            setLanguage(newLang);
-        });
-        
-        // --- Modal Logic ---
-        function openModal(modalId) {
-            const modal = document.getElementById(modalId);
-            modal.classList.remove('hidden');
-            document.body.style.overflow = 'hidden'; // Prevent background scrolling
-            setTimeout(() => {
-                modal.classList.remove('opacity-0');
-                modal.querySelector('.modal-content').classList.remove('scale-95');
-            }, 10);
-        }
-
-        function closeModal(modalId) {
-            const modal = document.getElementById(modalId);
-            modal.classList.add('opacity-0');
-            modal.querySelector('.modal-content').classList.add('scale-95');
-            setTimeout(() => {
-                modal.classList.add('hidden');
-                document.body.style.overflow = ''; // Restore scrolling
-            }, 250);
-        }
-
-        // Close modal on escape key
-        document.addEventListener('keydown', (event) => {
-            if (event.key === "Escape") {
-                document.querySelectorAll('.modal:not(.hidden)').forEach(modal => {
-                    closeModal(modal.id);
-                });
-            }
-        });
-
-        // --- Content Injection for Modals ---
-        const modalContent = {
-            modal2: `
-                <h3 data-lang="m2_h1">1. Executive Summary</h3>
-                <p data-lang="m2_p1">This document outlines the framework for Digital Chautari, a protocol designed to create a secure, transparent, and layered system for public consultation and voting. It addresses the critical need for trustworthy digital infrastructure to strengthen the relationship between citizens and the state in Nepal's federal democratic context. By leveraging modern cryptography, the protocol ensures that every voice is counted accurately and anonymously, fostering unprecedented public trust and enabling data-driven policymaking from the federal to the local ward level.</p>
-                <h3 data-lang="m2_h2">2. Vision & Core Principles</h3>
-                <p data-lang="m2_p2">Our vision is a Nepal where public policy is a direct reflection of the people's will. The protocol is built on three core principles:</p>
-                <ul>
-                    <li data-lang="m2_li1"><strong>User Sovereignty:</strong> Citizens own and control their identity and data.</li>
-                    <li data-lang="m2_li2"><strong>Verifiable Integrity:</strong> The integrity of every poll is mathematically provable by any party.</li>
-                    <li data-lang="m2_li3"><strong>Privacy by Design:</strong> Voter anonymity is a non-negotiable cryptographic guarantee.</li>
-                </ul>
-                <h3 data-lang="m2_h3">3. Implementation Roadmap</h3>
-                <p data-lang="m2_p3">A phased approach is proposed to ensure successful adoption:</p>
-                <ol>
-                    <li data-lang="m2_ol1"><strong>Phase 1 (6-9 Months):</strong> Development of the core protocol, reference client applications, and a pilot project with a single municipality on a non-binding issue (e.g., budget priority survey).</li>
-                    <li data-lang="m2_ol2"><strong>Phase 2 (12 Months):</strong> Expansion to multiple municipalities and provincial-level consultations. Integration with the national ID system for identity verification.</li>
-                    <li data-lang="m2_ol3"><strong>Phase 3 (Ongoing):</strong> Nationwide rollout for non-binding national consultations and potential exploration for official electoral use, subject to legal and regulatory frameworks.</li>
-                </ol>
-                <h3 data-lang="m2_h4">4. Conclusion</h3>
-                <p data-lang="m2_p4">Digital Chautari offers a transformative opportunity to modernize governance, enhance democratic participation, and build a more responsive and trusted state. It is a forward-looking investment in the nation's digital and democratic future.</p>
-            `,
-            modal3: `
-                <h3 data-lang="m3_h1">Abstract</h3>
-                <p data-lang="m3_p1">This report introduces the Vox Populi Protocol (VPP), a comprehensive framework for creating a decentralized, federated system for public voice data collection and cryptographically secure voting... <em>(The full detailed abstract and technical content would follow here)</em></p>
-                <h3 data-lang="m3_h2">1. Architectural Framework</h3>
-                <p data-lang="m3_p2">The VPP architecture consists of Personal Voice Servers (PVS), Aggregation Relays, and Application Views (AVs)...</p>
-                <h3 data-lang="m3_h3">2. The Identity Layer</h3>
-                <p data-lang="m3_p3">Sybil resistance is achieved via W3C Decentralized Identifiers (DIDs) and Verifiable Credentials (VCs), with eligibility proven using Zero-Knowledge Proofs (ZKPs)...</p>
-                <h3 data-lang="m3_h4">4. Application Layer: E2E-V Voting</h3>
-                <p data-lang="m3_p4">The protocol implements an End-to-End Verifiable (E2E-V) voting system using homomorphic encryption, guaranteeing that votes are Cast-as-Intended, Recorded-as-Cast, and Counted-as-Recorded...</p>
-                <em data-lang="m3_em1">(Note: This is a summary. The full specification details the exact cryptographic primitives, data schemas, and network APIs.)</em>
-            `,
-            modal4: `
-                <h3 data-lang="m4_h1">1. Introduction and Rationale</h3>
-                <p data-lang="m4_p1">This addendum specifies the Jurisdictional Scoping Module, an extension to the VPP that enables the creation of polls and consultations targeted at specific administrative and geographic boundaries, essential for a federal structure like Nepal's.</p>
-                <h3 data-lang="m4_h2">2. The Core Solution: Attribute-Based Verifiable Credentials</h3>
-                <p data-lang="m4_p2">The solution lies in enhancing the <code>VoterEligibilityCredential</code> to a richer <code>CitizenAttributeCredential</code>. This credential contains non-identifiable attributes signed by a trusted Issuer.</p>
-                <p data-lang="m4_p3"><strong>Key Attributes for Nepal's Federal Structure:</strong></p>
-                <ul>
-                    <li data-lang="m4_li1"><code>province_id</code>: (e.g., "3" for Bagmati)</li>
-                    <li data-lang="m4_li2"><code>district_id</code>: (e.g., "27" for Kathmandu)</li>
-                    <li data-lang="m4_li3"><code>municipality_id</code>: (e.g., "2701" for Kathmandu)</li>
-                    <li data-lang="m4_li4"><code>ward_id</code>: (e.g., "16")</li>
-                </ul>
-                <h3 data-lang="m4_h3">3. Privacy-Preserving Proof of Jurisdiction</h3>
-                <p data-lang="m4_p4">A citizen proves they meet the criteria for a local poll without revealing their location using an extended Zero-Knowledge Proof. The ZKP verifies they hold a credential with the required attributes (e.g., <code>ward_id</code> = "16") without revealing the credential itself.</p>
-                 <h3 data-lang="m4_h4">4. Benefits of this Layered Approach</h3>
-                 <ul>
-                    <li data-lang="m4_li5"><strong>Hyper-Local Engagement:</strong> Empowers local governments.</li>
-                    <li data-lang="m4_li6"><strong>Reduced Noise:</strong> Ensures only relevant stakeholders participate.</li>
-                    <li data-lang="m4_li7"><strong>Flexibility:</strong> The model can be extended to non-geographic attributes in the future.</li>
-                 </ul>
-            `
-        };
-
-        // Inject content on load
-        document.getElementById('modal2-content').innerHTML = modalContent.modal2;
-        document.getElementById('modal3-content').innerHTML = modalContent.modal3;
-        document.getElementById('modal4-content').innerHTML = modalContent.modal4;
-
-        // --- Scroll Animations ---
-        const sections = document.querySelectorAll('.section-fade-in');
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
-            });
-        }, {
-            threshold: 0.1
-        });
-
-        sections.forEach(section => {
-            observer.observe(section);
-        });
-
-    </script>
+    <!-- Import our modular scripts in correct order -->
+    <script src="assets/js/translations.js"></script>
+    <script src="assets/js/data.js"></script>
+    <script src="assets/js/views.js"></script>
+    <script src="assets/js/main.js"></script>
 
 </body>
 </html>
